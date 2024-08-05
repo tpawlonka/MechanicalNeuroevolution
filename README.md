@@ -1,13 +1,15 @@
 # MechanicalNeuroevolution
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
+This is a rewrite of my old thesis project into Java for the purpose of exercising my Java skills.\
+Compared to the original, it is equipped with a libgdx and scene2d based GUI which allows choosing parameters for the experiment without
+the need to use arguments during startup or launch the application in different modes.\
+It is written with extensibility in mind and will feature things which I didn't have time to include in the original,
+such as customizable terrain and simulation conditions, and visual browsing of population history.\
+The visual output mode is also a lot more sane and performant compared to the original version.
 
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
+Copyright (C) Tadeusz Pawlonka
 
-## Platforms
-
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3.
+All use must comply with the GPL v3 license as outlined in LICENSE.md
 
 ## Gradle
 
