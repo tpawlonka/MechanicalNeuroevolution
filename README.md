@@ -11,6 +11,8 @@ Copyright (C) Tadeusz Pawlonka
 
 All use must comply with the GPL v3 license as outlined in LICENSE.md
 
+libGDX, Box2D and Scene2D are distributed under the Apache 2.0 license, which is compatible with GPL v3.
+
 ## Gradle
 
 This project uses [Gradle](https://gradle.org/) to manage dependencies.
