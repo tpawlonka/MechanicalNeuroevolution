@@ -5,10 +5,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import java.util.function.Function;
 
 public class NumericRangeFilter<T extends Number> implements TextField.TextFieldFilter{
-    private T lowerBound;
-    private T upperBound;
+    private final T lowerBound;
+    private final T upperBound;
     private Mode mode = Mode.Inclusive;
-    private Class<T> type;
     private Function<String, Number> cast;
     private Function<Number[], Integer> comparison;
 
