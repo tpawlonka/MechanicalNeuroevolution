@@ -1,4 +1,4 @@
 package org.tpawlonka.mechevo.interfaces;
 
-public interface ITopology {
+public interface Topology {
 }
