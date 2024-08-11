@@ -1,23 +1,23 @@
 package org.tpawlonka.mechevo.simulation.adapters;
 
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.IFitness;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.IPopulation;
-import org.tpawlonka.mechevo.interfaces.simulation.adapters.ISimulation;
-import org.tpawlonka.mechevo.interfaces.simulation.sandboxes.ISandbox;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Fitness;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Population;
+import org.tpawlonka.mechevo.interfaces.simulation.adapters.Simulation;
+import org.tpawlonka.mechevo.interfaces.simulation.sandboxes.Sandbox;
 
-public class BulletSim implements ISimulation {
+public class BulletSim implements Simulation {
     @Override
-    public void setFitnessFunction(IFitness fitnessFunction) {
+    public void setFitnessFunction(Fitness fitnessFunction) {
 
     }
 
     @Override
-    public void evaluateFitness(IPopulation population) {
+    public void evaluateFitness(Population population) {
 
     }
 
     @Override
-    public void setSandbox(ISandbox sandbox) {
+    public void setSandbox(Sandbox sandbox) {
 
     }
 

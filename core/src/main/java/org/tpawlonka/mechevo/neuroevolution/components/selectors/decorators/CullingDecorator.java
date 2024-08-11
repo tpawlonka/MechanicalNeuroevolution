@@ -1,25 +1,25 @@
 package org.tpawlonka.mechevo.neuroevolution.components.selectors.decorators;
 
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.IFitness;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.IPopulation;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.ISelector;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Fitness;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Population;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Selector;
 
-public class CullingDecorator implements ISelector {
-    ISelector selector;
-    IFitness fitness;
+public class CullingDecorator implements Selector {
+    Selector selector;
+    Fitness fitness;
     double percentCutoff = 20;
 
-    CullingDecorator(ISelector selector) {
+    CullingDecorator(Selector selector) {
         this.selector = selector;
     }
 
     @Override
-    public IPopulation select(IPopulation population) {
+    public Population select(Population population) {
         return this.selector.select(this.cull(population));
     }
 
     @Override
-    public void setFitnessFunction(IFitness fitness) {
+    public void setFitnessFunction(Fitness fitness) {
         this.fitness = fitness;
     }
 
@@ -30,7 +30,7 @@ public class CullingDecorator implements ISelector {
         this.percentCutoff = percentCutoff;
     }
 
-    private IPopulation cull(IPopulation population) {
+    private Population cull(Population population) {
         return population;
     }
 }

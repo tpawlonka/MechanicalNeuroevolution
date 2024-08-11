@@ -1,23 +1,22 @@
 package org.tpawlonka.mechevo.neuroevolution;
 
-import org.tpawlonka.mechevo.interfaces.simulation.adapters.ISimulation;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.INeuroevolutionContext;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.INeuroevolutionBuilder;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.ISelector;
+import org.tpawlonka.mechevo.interfaces.simulation.adapters.Simulation;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.NeuroevolutionContext;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Selector;
 import org.tpawlonka.mechevo.interfaces.neuroevolution.components.*;
 
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public class NeuroevolutionBuilder implements INeuroevolutionBuilder {
-    private IPopulation population;
-    private IFitness fitness;
-    private ISelector selector;
-    private IMutator mutator;
-    private ICrossover crossover;
-    private IEncoder encoder;
-    private IDecoder decoder;
-    private ISimulation simulation;
+public class NeuroevolutionBuilder implements org.tpawlonka.mechevo.interfaces.neuroevolution.NeuroevolutionBuilder {
+    private Population population;
+    private Fitness fitness;
+    private Selector selector;
+    private Mutator mutator;
+    private Crossover crossover;
+    private Encoder encoder;
+    private Decoder decoder;
+    private Simulation simulation;
 
     private boolean nullCheck() {
         return Stream.of(
@@ -30,11 +29,11 @@ public class NeuroevolutionBuilder implements INeuroevolutionBuilder {
             this.decoder).allMatch(Objects::isNull);
     }
 
-    public INeuroevolutionContext build() throws IllegalStateException {
+    public NeuroevolutionContext build() throws IllegalStateException {
         if (!this.nullCheck()) {
             throw new IllegalStateException("Neuroevolution builder failed to build: missing components");
         }
-        NeuroevolutionContext neuroevolution = new NeuroevolutionContext();
+        org.tpawlonka.mechevo.neuroevolution.NeuroevolutionContext neuroevolution = new org.tpawlonka.mechevo.neuroevolution.NeuroevolutionContext();
         neuroevolution.setCrossover(this.crossover);
         neuroevolution.setEncoder(this.encoder);
         neuroevolution.setDecoder(this.decoder);
@@ -48,35 +47,35 @@ public class NeuroevolutionBuilder implements INeuroevolutionBuilder {
         return neuroevolution;
     }
 
-    public void setPopulation(IPopulation population) {
+    public void setPopulation(Population population) {
         this.population = population;
     }
 
-    public void setFitness(IFitness fitness) {
+    public void setFitness(Fitness fitness) {
         this.fitness = fitness;
     }
 
-    public void setSelector(ISelector selector) {
+    public void setSelector(Selector selector) {
         this.selector = selector;
     }
 
-    public void setMutator(IMutator mutator) {
+    public void setMutator(Mutator mutator) {
         this.mutator = mutator;
     }
 
-    public void setCrossover(ICrossover crossover) {
+    public void setCrossover(Crossover crossover) {
         this.crossover = crossover;
     }
 
-    public void setEncoder(IEncoder encoder) {
+    public void setEncoder(Encoder encoder) {
         this.encoder = encoder;
     }
 
-    public void setDecoder(IDecoder decoder) {
+    public void setDecoder(Decoder decoder) {
         this.decoder = decoder;
     }
 
-    public void setSimulation(ISimulation simulation) {
+    public void setSimulation(Simulation simulation) {
         this.simulation = simulation;
     }
 }

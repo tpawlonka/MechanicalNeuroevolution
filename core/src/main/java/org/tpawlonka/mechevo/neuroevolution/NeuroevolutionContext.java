@@ -1,23 +1,22 @@
 package org.tpawlonka.mechevo.neuroevolution;
 
-import org.tpawlonka.mechevo.interfaces.simulation.adapters.ISimulation;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.INeuroevolutionContext;
+import org.tpawlonka.mechevo.interfaces.simulation.adapters.Simulation;
 import org.tpawlonka.mechevo.interfaces.neuroevolution.components.*;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.ISelector;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Selector;
 
 import java.util.LinkedHashMap;
 
-public class NeuroevolutionContext implements INeuroevolutionContext {
-    private IPopulation population;
-    private IFitness fitness;
-    private ISelector selector;
-    private IMutator mutator;
-    private ICrossover crossover;
-    private IEncoder encoder;
-    private IDecoder decoder;
-    private ISimulation simulation;
+public class NeuroevolutionContext implements org.tpawlonka.mechevo.interfaces.neuroevolution.NeuroevolutionContext {
+    private Population population;
+    private Fitness fitness;
+    private Selector selector;
+    private Mutator mutator;
+    private Crossover crossover;
+    private Encoder encoder;
+    private Decoder decoder;
+    private Simulation simulation;
 
-    private LinkedHashMap<Integer, IPopulation> populationHistory;
+    private LinkedHashMap<Integer, Population> populationHistory;
 
     private boolean continuousMode = false;
 
@@ -39,46 +38,46 @@ public class NeuroevolutionContext implements INeuroevolutionContext {
 //    }
 
     @Override
-    public void setSelector(ISelector selector) {
+    public void setSelector(Selector selector) {
         this.selector = selector;
     }
 
     @Override
-    public void setEncoder(IEncoder encoder) {
+    public void setEncoder(Encoder encoder) {
         this.encoder = encoder;
     }
 
     @Override
-    public void setDecoder(IDecoder decoder) {
+    public void setDecoder(Decoder decoder) {
         this.decoder = decoder;
     }
 
     @Override
-    public void setMutator(IMutator mutator) {
+    public void setMutator(Mutator mutator) {
         this.mutator = mutator;
     }
 
     @Override
-    public void setFitness(IFitness fitness) {
+    public void setFitness(Fitness fitness) {
         this.fitness = fitness;
     }
 
     @Override
-    public void setCrossover(ICrossover crossover) {
+    public void setCrossover(Crossover crossover) {
         this.crossover = crossover;
     }
 
     @Override
-    public void setPopulation(IPopulation population) {
+    public void setPopulation(Population population) {
         this.population = population;
     }
 
     @Override
-    public void setSimulation(ISimulation simulation) {
+    public void setSimulation(Simulation simulation) {
         this.simulation = simulation;
     }
 
-    public IPopulation getPopulation() {
+    public Population getPopulation() {
         return this.population;
     }
 
@@ -89,8 +88,8 @@ public class NeuroevolutionContext implements INeuroevolutionContext {
     }
 
     private void newGeneration() {
-        IPopulation selected = this.selector.select(this.population);
-        IPopulation mutated = this.mutator.mutateAll(selected);
+        Population selected = this.selector.select(this.population);
+        Population mutated = this.mutator.mutateAll(selected);
         this.population = this.crossover.cross(mutated);
         this.simulation.evaluateFitness(this.population);
         this.populationHistory.putLast(this.populationHistory.size(), this.population.clone());

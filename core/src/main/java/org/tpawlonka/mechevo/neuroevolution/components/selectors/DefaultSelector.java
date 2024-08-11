@@ -1,24 +1,24 @@
 package org.tpawlonka.mechevo.neuroevolution.components.selectors;
 
 
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.IFitness;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.IIndividual;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.IPopulation;
-import org.tpawlonka.mechevo.interfaces.neuroevolution.components.ISelector;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Fitness;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Individual;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Population;
+import org.tpawlonka.mechevo.interfaces.neuroevolution.components.Selector;
 
-public class DefaultSelector implements ISelector {
-    IFitness fitness;
+public class DefaultSelector implements Selector {
+    Fitness fitness;
 
     @Override
-    public IPopulation select(IPopulation population) {
-        for (IIndividual individual: population) {
+    public Population select(Population population) {
+        for (Individual individual: population) {
 
         }
         return null;
     }
 
     @Override
-    public void setFitnessFunction(IFitness fitness) {
+    public void setFitnessFunction(Fitness fitness) {
         this.fitness = fitness;
     }
 }
