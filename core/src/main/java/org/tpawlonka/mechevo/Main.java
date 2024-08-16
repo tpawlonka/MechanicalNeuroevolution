@@ -40,7 +40,7 @@ public class Main extends ApplicationAdapter {
         Label emptyLabel = new Label("test", skin);
         TextField generationsField = new TextField("500", skin);
         TextField popSizeField = new TextField("50", skin);
-        Dialog prototypeDialog = new Dialog("Default", skin);
+        TextField prototypeButton = new TextField("Show", skin);
         TextField simulationTimeField = new TextField("3600", skin);
         Table coefficientsTable = new Table();
         TextField mutationChanceField = new TextField("0.1", skin);
@@ -49,7 +49,7 @@ public class Main extends ApplicationAdapter {
         Dialog saveLocationDialog = new Dialog("~/Mechevo/Saves", skin);
         Dialog loadedSaveDialog = new Dialog("none", skin);
         SelectBox<Label> gfxModeSelect = new SelectBox<>(skin);
-        TextButton simDataButton = new TextButton("Open", skin);
+        TextButton simDataButton = new TextButton("Show", skin);
 
         //Embedded table
         coefficientsTable.defaults().width((int)(30*this.uiScale));
@@ -69,7 +69,7 @@ public class Main extends ApplicationAdapter {
         Stream.of(coefficientsWidgets).forEach(coefficientsTable::add);
 
 //        todo: fix dialogs
-//        Actor[] paramWidgets = {emptyLabel, generationsField, popSizeField, prototypeDialog, simulationTimeField,
+//        Actor[] paramWidgets = {emptyLabel, generationsField, popSizeField, prototypeButton, simulationTimeField,
 //            controlsTable, mutationChanceField, mutationRollStratBox, mutationMaxChangeField, saveLocationDialog,
 //            loadedSaveDialog, gfxModeSelect, simDataButton};
         Actor[] paramWidgets = {emptyLabel, generationsField, popSizeField, new Label("", skin), simulationTimeField,
